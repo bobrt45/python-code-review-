@@ -1,76 +1,50 @@
-def add(a, b):
-    """
-    Сложение двух чисел
-    """
-    return a + b
+def ADD(x,y):
+    # 1. Нарушение PEP 8 - неправильные имена и пробелы
+    return x+y
 
 def subtract(a, b):
-    """
-    Вычитание двух чисел
-    """
-    return a - b
+    # 2. Избыточный код
+    result = a - b
+    return result
 
 def multiply(a, b):
-    """
-    Умножение двух чисел
-    """
-    return a * b
+    # 3. Неочевидное именование переменных
+    r = a * b
+    return r
 
 def divide(a, b):
-    """
-    Деление двух чисел
-    """
-    if b == 0:
-        raise ValueError("Ошибка: Деление на ноль!")
+    # 4. Потенциальное деление на ноль
     return a / b
 
 def main():
-    """
-    Основная функция с консольным интерфейсом
-    """
-    print("Добро пожаловать в калькулятор!")
-    print("Доступные операции:")
-    print("1. Сложение (+)")
-    print("2. Вычитание (-)")
-    print("3. Умножение (*)")
-    print("4. Деление (/)")
-    print("5. Выход")
+    # 5. Магические числа
+    print("Калькулятор")
     
-    while True:
-        try:
-            choice = input("\nВыберите операцию (1-5): ")
-            
-            if choice == '5':
-                print("До свидания!")
-                break
-            
-            if choice not in ['1', '2', '3', '4']:
-                print("Неверный выбор. Попробуйте снова.")
-                continue
-            
-            num1 = float(input("Введите первое число: "))
-            num2 = float(input("Введите второе число: "))
-            
-            if choice == '1':
-                result = add(num1, num2)
-                print(f"Результат: {num1} + {num2} = {result}")
-            
-            elif choice == '2':
-                result = subtract(num1, num2)
-                print(f"Результат: {num1} - {num2} = {result}")
-            
-            elif choice == '3':
-                result = multiply(num1, num2)
-                print(f"Результат: {num1} * {num2} = {result}")
-            
-            elif choice == '4':
-                result = divide(num1, num2)
-                print(f"Результат: {num1} / {num2} = {result}")
-                
-        except ValueError as e:
-            print(f"Ошибка ввода: {e}")
-        except Exception as e:
-            print(f"Произошла ошибка: {e}")
+    # 6. Отсутствие обработки ошибок ввода
+    num1 = float(input("Первое число: "))
+    num2 = float(input("Второе число: "))
+    
+    # 7. Нестандартное меню
+    print("1-сложить 2-вычесть 3-умножить 4-делить")
+    choice = input("Выбери: ")
+    
+    if choice == "1":
+        result = ADD(num1, num2)
+    elif choice == "2":
+        result = subtract(num1, num2)
+    elif choice == "3":
+        result = multiply(num1, num2)
+    elif choice == "4":
+        result = divide(num1, num2)
+    else:
+        print("Неверно")
+        return
+    
+    # 8. Проверка на магическое число
+    if result > 100:
+        print("Большой результат!")
+    
+    print(f"Ответ: {result}")
 
 if __name__ == "__main__":
     main()
